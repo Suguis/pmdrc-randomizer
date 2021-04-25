@@ -10,3 +10,8 @@ This software is in development. The following checked elements are the features
 - [ ] Randomize Pokémon moveset.
 
 *...More coming soon...*
+
+## Download
+
+### Windows
+Go to [Releases](https://github.com/Suguivy/pmdrc-randomizer/releases), and select the more recent version of the file `pmdrc-randomizer.exe`.
