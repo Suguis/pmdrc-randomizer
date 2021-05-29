@@ -1,5 +1,7 @@
 # pmdrc-randomizer
 
+**NOTE: I'm very busy with exams now and the development is paused but I will work on it when I can!**
+
 A randomizer for the GBA game "Pokémon Mystery Dungeon: Red Rescue Team".
 
 This is a whole new randomizer, based on the [old](https://github.com/Suguivy/pmdrc-randomizer-old), but includes a GUI and it's more user friendly.
