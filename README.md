@@ -1,6 +1,6 @@
 # pmdrc-randomizer
 
-**NOTE: I'm very busy with exams now and the development is paused but I will work on it when I can!**
+**Not active at the moment**
 
 A randomizer for the GBA game "Pokémon Mystery Dungeon: Red Rescue Team".
 
