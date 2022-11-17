@@ -1,15 +1,11 @@
 # pmdrc-randomizer
 
-> **NOTE: Development not active at the moment**
-
 A randomizer for the GBA game "Pokémon Mystery Dungeon: Red Rescue Team".
-
-This is a whole new randomizer, based on the [old](https://github.com/Suguivy/pmdrc-randomizer-old), but includes a GUI and it's more user friendly.
 
 This software is in development. The following checked elements are the features already included, and the unchecked ones are planned to be included:
 
 - [X] Randomize Pokémon in dungeon floors *(Bosses and some parts of the Makuhita's Dojo mazes remain unchanged to prevent crashing)*.
-- [ ] Randomize Pokémon moveset.
+- [X] Randomize Pokémon moveset.
 
 *...More coming soon...*
 
@@ -23,22 +19,38 @@ Go to [Releases](https://github.com/Suguivy/pmdrc-randomizer/releases), and sele
 
 ### Run from source code
 
-You can also clone the reposity and run the code directly. Make sure you have `git` and `python` installed on your machine:
+You can also clone the reposity and run the `main.py` file directly. Make sure you have `git` and `python` installed on your machine:
 
-```
-git clone https://github.com/Suguivy/pmdrc-randomizer.git
-cd pmdrc-randomizer
-python main.py
-```
+## Building
+
+In Linux, you can build the program by running the `build.sh` script. You need to have the `pyinstaller` package. Install it with `pip3 install pyinstaller`.
 
 ## Usage
+
+### Configuration
 
 **NOTE:** Make sure you are using the US rom. Other versions have not been tested.
 
 **NOTE:** You maybe should make a backup of your game before randomize it.
 
-1. Open the randomizer and click on the *Select rom to randomize* button.
-2. Select the rom file.
-3. Check the options you want to apply.
-4. Click on *Start* and wait for the *DONE!* text.
-5. Now you can close the randomizer and play the game!
+First, edit the `config.json` file. There are two options:
+- `"randomizeDungeonPokemon"`: set to `true` if you want to randomize the Pokémon that will appear in the dungeon. Set to `false` otherwise.
+- `"randomizePokemonMoves"`: set to `true` if you want to randomize the moves that Pokémon learn by level. Set to `false` otherwise.
+
+### Running
+
+In Windows you can drag and drop the rom file into the executable.
+
+In Linux, open a terminal where the executable is located, and pass the rom file as an argument, like:
+
+```
+$ ./pmdrc-randomizer <your-rom-file>
+```
+
+If it doesn't work, make sure first to give permisions to run the executable:
+
+```
+$ chmod +x pmdrc-randomizer
+```
+
+A new rom called "RANDOMIZED <the old rom file name>", will be generated.

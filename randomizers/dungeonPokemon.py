@@ -1,16 +1,24 @@
-#!/usr/bin/env python
-
 """
-This class represents a binary chunk of the two first bytes of the
-correspondent entry of the Pokémon found on a dungeon. These two
-bytes together represent the Pokémon ID and the level on which
-the Pokémon will be found on the dungeon.
+This module randomizes the level and ID of the binary chunks
+of the correspondent entry of the Pokémon found on a dungeon.
 
-More info about the entry on:
+More info:
 https://datacrystal.romhacking.net/wiki/Pok%C3%A9mon_Mystery_Dungeon:_Red_Rescue_Team:Dungeons_Floors_Data:Pok%C3%A9mon_Found
 """
 
 import random
+
+def randomize(bs_rom: bytearray):
+    addr     = 0x4b6064 # Start address
+    end_addr = 0x4c2a9b
+
+    while addr < end_addr:
+        poke = DungeonPokemon.from_memory(bs_rom, addr)
+        if (poke.is_not_zero() and poke.can_be_replaced()
+                and DungeonPokemon.is_safe(addr)):
+            poke.randomize_p_id()
+            poke.write(bs_rom, addr)
+        addr += 8
 
 class DungeonPokemon:
     def __init__(self, p_id, level):
@@ -18,8 +26,8 @@ class DungeonPokemon:
         self.level = level
 
     @staticmethod
-    def from_memory(rom, address):
-        poke = (rom[address] << 8) | rom[address + 1]
+    def from_memory(ba_rom: bytearray, address):
+        poke = (ba_rom[address] << 8) | ba_rom[address + 1]
         p_id = (poke >> 8) | ((poke & 0x0001) << 8)
         level = (poke & 0x00ff) >> 1
         return DungeonPokemon(p_id, level)
@@ -198,11 +206,11 @@ class DungeonPokemon:
     def __str__(self):
         return hex(self.to_bin())
 
-    def write(self, rom, address):
+    def write(self, ba_rom, address):
         poke_bin = self.to_bin()
 
         first_byte  = (0xff00 & poke_bin) >> 8
         second_byte = 0x00ff & poke_bin
 
-        rom[address]     = first_byte
-        rom[address + 1] = second_byte
+        ba_rom[address]     = first_byte
+        ba_rom[address + 1] = second_byte
