@@ -9,48 +9,28 @@ This software is in development. The following checked elements are the features
 
 *...More coming soon...*
 
-## Download and execution
-
-There are two options to run the randomizer, one is by running the executable file, and the other one is by running the source code directly.
-
-### Direct binary release
+## Download
 
 Go to [Releases](https://github.com/Suguivy/pmdrc-randomizer/releases), and select the more recent version of the executable file. There are two, one for Linux and other for Windows.
 
-### Run from source code
-
-You can also clone the reposity and run the `main.py` file directly. Make sure you have `git` and `python` installed on your machine:
-
-## Building
-
-In Linux, you can build the program by running the `build.sh` script. You need to have the `pyinstaller` package. Install it with `pip3 install pyinstaller`.
-
 ## Usage
-
-### Configuration
 
 **NOTE:** Make sure you are using the US rom. Other versions have not been tested.
 
 **NOTE:** You maybe should make a backup of your game before randomize it.
 
-First, edit the `config.json` file. There are two options:
+1. Extract the `zip` file. You will find to files: `config.json` in which you can configure what things to randomize, and the executable file `pmdrc-randomizer`.
+
+2. First, edit the `config.json` file to fit your needs. There are two options:
 - `"randomizeDungeonPokemon"`: set to `true` if you want to randomize the Pokémon that will appear in the dungeon. Set to `false` otherwise.
 - `"randomizePokemonMoves"`: set to `true` if you want to randomize the moves that Pokémon learn by level. Set to `false` otherwise.
 
-### Running
+3. Then, run the `pmdrc-randomizer` program, and make sure that `config.json` is in the same directory as the executable.
 
-In Windows you can drag and drop the rom file into the executable.
+4. A file selection window will pop up. Select the original rom file of the game.
 
-In Linux, open a terminal where the executable is located, and pass the rom file as an argument, like:
+5. Wait a bit, and a file saving window will pop up. Write the name you want for the randomized rom file, and save it.
 
-```
-$ ./pmdrc-randomizer <your-rom-file>
-```
+## Building
 
-If it doesn't work, make sure first to give permisions to run the executable:
-
-```
-$ chmod +x pmdrc-randomizer
-```
-
-A new rom called "RANDOMIZED <the old rom file name>", will be generated.
+You can build the program by running the `build.sh` script. You need to have the `pyinstaller` package. Install it with `pip3 install pyinstaller`. A zip will be generated in the same directory as the build script.
