@@ -1,19 +1,17 @@
 #!/usr/bin/env python
 
 import os
+import json
 
 import randomizers.dungeonPokemon
 import randomizers.movesLearned
 
-def randomize(rom_path, config):
-    with open(rom_path, 'rb') as rom:
-        bs_rom = bytearray(rom.read())
+def randomize(ba_rom: bytearray):
+    with open('config.json') as config_json:
+        config = json.load(config_json)
 
-        if config["randomizeDungeonPokemon"]:
-            randomizers.dungeonPokemon.randomize(bs_rom)
+    if config["randomizeDungeonPokemon"]:
+        randomizers.dungeonPokemon.randomize(ba_rom)
 
-        if config["randomizePokemonMoves"]:
-            randomizers.movesLearned.randomize(bs_rom)
-
-    with open("(randomized) " + os.path.basename(rom_path), 'wb') as rom:
-        rom.write(bs_rom)
+    if config["randomizePokemonMoves"]:
+        randomizers.movesLearned.randomize(ba_rom)
