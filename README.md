@@ -33,4 +33,4 @@ Go to [Releases](https://github.com/Suguivy/pmdrc-randomizer/releases), and sele
 
 ## Building
 
-You can build the program by running the `build.sh` script. You need to have the `pyinstaller` package. Install it with `pip3 install pyinstaller`. A zip will be generated in the same directory as the build script.
+You can build the program by running the `build.sh` script on Linux, or `build.ps1` on Windows. You need to have the `pyinstaller` package. Install it with `pip3 install pyinstaller`. A zip will be generated in the same directory as the build script.
