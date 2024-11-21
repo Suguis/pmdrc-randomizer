@@ -7,8 +7,6 @@ This software is in development. The following checked elements are the features
 - [X] Randomize Pokémon in dungeon floors *(Bosses and some parts of the Makuhita's Dojo mazes remain unchanged to prevent crashing)*.
 - [X] Randomize Pokémon moveset.
 
-*...More coming soon...*
-
 ## Download
 
 Go to [Releases](https://github.com/Suguivy/pmdrc-randomizer/releases), and select the more recent version of the executable file. There are two, one for Linux and other for Windows.
